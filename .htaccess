@@ -1,5 +1,10 @@
 Options +FollowSymlinks
 RewriteEngine on
+RewriteRule ^kevin test.php [L]
+RewriteRule ^sharon index.php?c=Newsfeed&m=index [L]
+
+RewriteRule ^News/([A-Za-z]+)/([A-Za-z0-9-]+)-([0-9]+)$ index.php?c=News&m=index&id_news=$3 [L]
+RewriteRule ^News/All$ index.php?c=Newsfeed&m=index [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
