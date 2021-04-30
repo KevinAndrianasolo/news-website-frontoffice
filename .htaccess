@@ -1,6 +1,5 @@
 Options +FollowSymlinks
 RewriteEngine on
-RewriteBase /news-website-frontoffice
 RewriteRule ^kevin test.php [L]
 RewriteRule ^sharon index.php?c=Newsfeed&m=index [L]
 
