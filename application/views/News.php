@@ -1,7 +1,7 @@
 <h1 class="display-1 title"><?php echo $news->HTMLInstance['title']; ?></h1>
 <h2 class="display-2 subtitle"><?php echo $news->HTMLInstance['subtitle']; ?></h2>
 <h3 class="display-3 description"><?php echo $news->HTMLInstance['description']; ?></h3>
-<p  class="display-4 content"><?php echo $news->HTMLInstance['content']; ?></p>
+<h5  class="display-4 content"><?php echo $news->HTMLInstance['content']; ?></h5>
 <h1 class="display-1 title">Suggestions:</h1>
 <?php if(count($related_news)==0) { ?>
     <div class="alert alert-dark display-4 content" role="alert">
