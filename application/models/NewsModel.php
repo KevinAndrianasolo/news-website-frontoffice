@@ -15,6 +15,28 @@
             $this->CheckDBErrors($this->db->error());
             return $this->toNewsArray($news);
         }
+        public function getAllNewsOf($id_category){
+            if($id_category==-1) { return $this->getAllNews(); }
+            $sql = "select * from news_details where id_category=%d";
+            $sql = sprintf($sql, $id_category);
+            $res = $this->db->query($sql);
+            $news = $res->result_array();
+
+            //Checking the dberrors:
+            $this->CheckDBErrors($this->db->error());
+            return $this->toNewsArray($news);
+        }
+        public function getAllRelatedNewsOf($id_news, $id_category){
+            $sql = "select * from news_details where id_news!= %d and id_category=%d";
+            $sql = sprintf($sql,$id_news,  $id_category);
+            $res = $this->db->query($sql);
+            $news = $res->result_array();
+
+            //Checking the dberrors:
+            $this->CheckDBErrors($this->db->error());
+            return $this->toNewsArray($news);
+        }
+        
         public function toNewsArray($tmp){
             $news = [];
             for($i=0;$i<count($tmp);$i++){

@@ -31,7 +31,7 @@
 
             $link = preg_replace("/\s+/","-", $link);
             $link = strtolower($link);
-            $link = 'News/'.$this->instance['category_name'].'/'.$publication_date_tmp.'-'.$link.'-'.$this->instance['id_news'];
+            $link = 'News/'.$this->instance['category_name'].'/'.$publication_date_tmp.'-'.$link.'-'.$this->instance['id_category'].'-'.$this->instance['id_news'];
             return $link;
         }
         public function getKeywords(){

@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title><?php echo $news->instance['title']; ?></title>
-    <meta name="author" content="ANDRIANASOLO LALA Sitrakaharinetsa Kevin, ETU000876"/>
-    <meta name="keywords" content="<?php echo implode(", ",$news->keywords); ?>"/>
-    <meta name="description" content="<?php echo $news->instance['description']; ?>"/>
-
-</head>
-<body>
-
-<h1><?php echo $news->HTMLInstance['title']; ?></h1>
-<h2><?php echo $news->HTMLInstance['subtitle']; ?></h2>
-<h3><?php echo $news->HTMLInstance['description']; ?></h3>
-<p><?php echo $news->HTMLInstance['content']; ?></p>
-</body>
-</html>
+<h1 class="display-1 title"><?php echo $news->HTMLInstance['title']; ?></h1>
+<h2 class="display-2 subtitle"><?php echo $news->HTMLInstance['subtitle']; ?></h2>
+<h3 class="display-3 description"><?php echo $news->HTMLInstance['description']; ?></h3>
+<p  class="display-4 content"><?php echo $news->HTMLInstance['content']; ?></p>
+<h1 class="display-1 title">Suggestions:</h1>
+<?php if(count($related_news)==0) { ?>
+    <div class="alert alert-dark display-4 content" role="alert">
+        Pas de suggestion disponible.
+    </div>
+<?php } ?>
+<ul class="display-4 content">
+    <?php for($i=0;$i<count($related_news);$i++){ ?>
+    <li><a href="<?php echo base_url().$related_news[$i]->link; ?>">
+    <?php echo $related_news[$i]->instance['title']; ?></a></li>
+    <?php } ?>
+</ul>
 

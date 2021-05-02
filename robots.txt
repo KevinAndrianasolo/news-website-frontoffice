@@ -1,0 +1,2 @@
+User-Agent : *
+Sitemap : https://news-website-frontoffice.herokuapp.com/Seo/sitemap
