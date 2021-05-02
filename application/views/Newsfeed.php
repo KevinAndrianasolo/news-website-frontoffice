@@ -11,8 +11,8 @@
 <h1>Toutes les actualités:</h1>
 <ul>
     <?php for($i=0;$i<count($news);$i++){ ?>
-    <li><a href="<?php echo str_replace("?","",site_url($news[$i]['link'])); ?>">
-    <?php echo $news[$i]['instance']['title']; ?></a></li>
+    <li><a href="<?php echo str_replace("?","",site_url($news[$i]->link)); ?>">
+    <?php echo $news[$i]->instance['title']; ?></a></li>
     <?php } ?>
 </ul>
 </body>

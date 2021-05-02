@@ -7,34 +7,35 @@
             parent::__construct();
         }
         public function getAllNews(){
-            
-            $options = array(
-            'http'=>array(
-                'method'=>"GET",
-                'header'=>'Connection: close\r\n'
-                )
-            ); 
-            $context = stream_context_create($options);
+            $sql = "select * from news_details";
+            $res = $this->db->query($sql);
+            $news = $res->result_array();
 
-            $url = $this->BASE_URL."/api/News";
-            $res = file_get_contents($url, false, $context);
-            $news =  json_decode($res,true)['DATA'];
+            //Checking the dberrors:
+            $this->CheckDBErrors($this->db->error());
+            return $this->toNewsArray($news);
+        }
+        public function toNewsArray($tmp){
+            $news = [];
+            for($i=0;$i<count($tmp);$i++){
+                $tmp[$i]['keyword_news'] = $this->getKeywordsNewsOf($tmp[$i]['id_news']);
+                $news[$i] = new News_class($tmp[$i]);
+            }
             return $news;
         }
         public function getNews($id){
-            $options = array(
-                'http'=>array(
-                    'method'=>"GET",
-                    'header'=>'Connection: close\r\n'
-                    )
-                ); 
-                $context = stream_context_create($options);
-    
-                $url = $this->BASE_URL."/api/News/".$id;
-                
-                $res = file_get_contents($url, false, $context);
-                $news =  json_decode($res,true)['DATA'];
-                return $news;
+            $sql = "select * from news_details where id_news=%d";
+            $sql = sprintf($sql, $id);
+            $res = $this->db->query($sql);
+            $news = $res->row_array();
+
+            //Checking the dberrors:
+            $this->CheckDBErrors($this->db->error());
+            if($news == null) throw new Exception("News n°".$id." does not exists.");
+
+            // Getting keywords:
+            $news['keyword_news'] = $this->getKeywordsNewsOf($id);
+            return new News_class($news);
         }
         public function SaveNews($data){
             $sql = "insert into news (id_category,title,subtitle,description,content,image ) values (%d,'%s','%s','%s','%s','%s')";

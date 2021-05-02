@@ -17,15 +17,21 @@
             $title = $this->instance['title'];
             $link = $title;
             $link = str_replace(":","", $link);
+            $link = str_replace("'","", $link);
+            $link = str_replace("\"","", $link);
+            $link = str_replace(".","", $link);
+            $link = str_replace(";","", $link);
+            $link = str_replace("=","", $link);
             $link = str_replace(",","", $link);
             $link = str_replace("/","", $link);
             $link = str_replace("\\", "", $link);
             $link = str_replace("!","", $link);
             $link = str_replace("?","", $link);
+            $link = str_replace("…","", $link);
 
             $link = preg_replace("/\s+/","-", $link);
             $link = strtolower($link);
-            $link = $publication_date_tmp.'-'.$link.'-'.$this->instance['id_news'];
+            $link = 'News/'.$this->instance['category_name'].'/'.$publication_date_tmp.'-'.$link.'-'.$this->instance['id_news'];
             return $link;
         }
         public function getKeywords(){
@@ -33,6 +39,9 @@
             for($i=0;$i<count($this->instance['keyword_news']);$i++){
                 $keywords[$i] = $this->instance['keyword_news'][$i]['keyword'];
             }
+            $keywords[] = "ETU000876";
+            $keywords[] = "S6";
+            $keywords[] = "TP Avril 2021";
             return $keywords;
         }
         public function __initHTMLInstance(){
