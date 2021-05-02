@@ -1,5 +1,5 @@
 <?php
-    require_once APPPATH.'models\BaseModel.php';
+    require_once APPPATH.'models/BaseModel.php';
     class ProfilModel extends BaseModel{
         public function __construct(){
             parent::__construct();
