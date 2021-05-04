@@ -37,6 +37,7 @@
             $link = str_replace("î","i", $link);
             $link = str_replace("ê","e", $link);
             $link = str_replace("`","-", $link);
+            $link = str_replace("’","-", $link);
 
             $link = preg_replace("/\s+/","-", $link);
             $link = strtolower($link);
