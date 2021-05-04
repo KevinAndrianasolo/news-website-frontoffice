@@ -28,6 +28,12 @@
             $link = str_replace("!","", $link);
             $link = str_replace("?","", $link);
             $link = str_replace("…","", $link);
+            $link = str_replace("à","a", $link);
+            $link = str_replace("é","e", $link);
+            $link = str_replace("è","e", $link);
+            $link = str_replace("ù","u", $link);
+            $link = str_replace("ç","c", $link);
+
 
             $link = preg_replace("/\s+/","-", $link);
             $link = strtolower($link);
