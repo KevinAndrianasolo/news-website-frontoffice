@@ -1,3 +1,4 @@
+<img class="image lg" src="<?php echo base_url().'assets/img/'.$news->instance['image']; ?>" alt="<?php echo $news->instance['title']; ?>" />
 <h1 class="display-1 title"><?php echo $news->HTMLInstance['title']; ?></h1>
 <h2 class="display-2 subtitle"><?php echo $news->HTMLInstance['subtitle']; ?></h2>
 <h3 class="display-3 description"><?php echo $news->HTMLInstance['description']; ?></h3>

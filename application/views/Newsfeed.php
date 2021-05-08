@@ -4,10 +4,16 @@
         Pas d'actualité disponible.
     </div>
 <?php } ?>
-<ul class="display-4 content">
+<ul class="display-4 list-group content">
     <?php for($i=0;$i<count($news);$i++){ ?>
-    <li><a href="<?php echo base_url().$news[$i]->link; ?>">
-    <?php echo $news[$i]->instance['title']; ?></a></li>
+    <li class="list-group-item">
+        <div class="newsfeed-img">
+            <img class="image sm" src="<?php echo base_url().'assets/img/'.$news[$i]->instance['image']; ?>" alt="<?php echo $news[$i]->instance['title']; ?>" />
+        </div>
+        <a class="newsfeed-title"href="<?php echo base_url().$news[$i]->link; ?>"><?php echo $news[$i]->instance['title']; ?></a>
+        <p class="newsfeed-content"><?php echo $news[$i]->instance['description']; ?></p>
+
+    </li>
     <?php } ?>
 </ul>
 

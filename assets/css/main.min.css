@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'BigJohn';
+    src: url('../fonts/BigJohn.otf');
+}
+
+@font-face {
+    font-family: 'SlimJoe';
+    src: url('../fonts/SlimJoe.otf');
+}
 .page{
     padding : 75px 50px;
     max-height: calc(100vh - 100px);
@@ -18,6 +27,26 @@
 }
 .page .nav .nav-link h4{
     font-size: 15px;
+}
+.image.lg{
+    margin-top : 20px;
+    height : 250px;
+    max-height : 250px;
+
+}
+.image.sm{
+    margin: 5px;
+    height : 100px;
+    max-height : 100px;
+
+}
+.newsfeed-img{
+    float : left;
+    min-width : 220px;
+    margin-right : 10px;
+}
+.newsfeed-content{
+    margin-top: 20px;
 }
 footer{
     position : fixed;
